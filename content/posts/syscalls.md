@@ -20,7 +20,7 @@ The Windows Operating System only uses Ring 0 and 3, to maintain compatibility w
 You see, your programs run in user mode but sometimes they need to do some fancy stuff that requires special permissions. That's where syscalls come in, acting as your middleman to request those privileged operations from the kernel, which runs in kernel mode.
 
 ## But How ??
-<img src=/ICP_Syscalls.jpg height=240/>
+<img src=/img/syscalls/ICP_Syscalls.jpg height=240/>
 
 When you call a function like *WriteFile*, the windows API will then call the Native API, which will then call the syscall instruction for you, which will then put the processor in kernel mode and execute what you need. <br>
 Here's a handy image i shamelessly swiped from RedOps.at blog : 
@@ -30,7 +30,7 @@ We need a way to call the syscall ourselves, hence bypassing any EDR hook in use
 
 To understand how to do this, let's take a look at a syscall from Ntdll.dll : 
 
-![NtCreateFile_Syscall_Disassembled.png](/NtCreateFile_Syscall_Disassembled.png)
+![NtCreateFile_Syscall_Disassembled.png](/img/syscalls/NtCreateFile_Syscall_Disassembled.png)
 
 The code of a syscall (also called the `syscall stub`) : 
 ```asm
@@ -90,7 +90,7 @@ fn main() {
 ## Dynamic Retrieval of SSNs
 A slightly more complicated way is to dynamically extract the SSN from the NTDLL library.
 All syscalls in Ntdll.dll have the exact same structure :
-![NtCreateFile_Syscall_Disassembled.png](/NtCreateFile_Syscall_Disassembled.png)
+![NtCreateFile_Syscall_Disassembled.png](/img/syscalls/NtCreateFile_Syscall_Disassembled.png)
 
 Or, the actual bytes we care about : 
 ```

@@ -4,6 +4,6 @@ description = "A malware development project written entirely in Rust. \n Thermi
 weight = 1
 
 [extra]
-remote_image = "/Thermite.webp"
+remote_image = "/img/thermite.webp"
 link_to = "https://github.com/Red4mber/Thermite"
 +++
