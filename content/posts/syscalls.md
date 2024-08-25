@@ -192,10 +192,12 @@ Here, we moved the value at offset 0x60 in the gs register to another register, 
 This is only a small example of what this powerful macro can do but there is a catch, we can't use this macro outside of a function scope. 
 
 To quote [The Rust Reference](https://doc.rust-lang.org/nightly/reference/inline-assembly.html) :
->With the `asm!` macro, the assembly code is emitted in a function scope and integrated into the compiler-generated assembly code of a function. 
+
+> With the `asm!` macro, the assembly code is emitted in a function scope and integrated into the compiler-generated assembly code of a function. 
 >
->This assembly code must obey [strict rules](https://doc.rust-lang.org/nightly/reference/inline-assembly.html#rules-for-inline-assembly) to avoid undefined behavior.<br>Note that in some cases the compiler may choose to emit the assembly code as a separate function and generate a call to it.
+> This assembly code must obey [strict rules](https://doc.rust-lang.org/nightly/reference/inline-assembly.html#rules-for-inline-assembly) to avoid undefined behavior.<br>Note that in some cases the compiler may choose to emit the assembly code as a separate function and generate a call to it.
 >
+
 With the `global_asm!` macro, the assembly code is emitted in a global scope, outside a function. This can be used to hand-write entire functions using assembly code, and generally provides much more freedom to use arbitrary registers and assembler directives.
 
 The `global_asm!` macro, however, can't take any variable as input and output, but this macro is *global*, meaning it is outside of any function's scope, we can define our own functions in assembly and use them in our rust code like any extern C library.
