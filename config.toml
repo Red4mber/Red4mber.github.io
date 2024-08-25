@@ -1,18 +1,21 @@
 # The URL the site will be built for
 base_url = "https://melusine.blog"
 
-author = "amber"
-
-# Whether to automatically compile all Sass files in the sass directory
+title = "Red4mber's blog"
+description = "Nerdy hacker girl from france. I love breaking computers, rust programming and coding programs no one should ever run ^^ I just started this blog, so expect more coming soon :)"
 compile_sass = true
+minify_html = true
+
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+theme = "shadharon"
+
 default_language = "en"
-minify_html = false
-generate_feeds = true
-feed_filenames = ["rss.xml"]
+
+# generate_feeds = true
+# feed_filenames = ["rss.xml"]
 
 taxonomies = [
     {name = "tags", feed = true},
@@ -25,4 +28,32 @@ highlight_code = true
 highlight_theme = "base16-ocean-dark"
 
 [extra]
-# Put all your custom variables here
+
+### Terminimal theme 
+# accent_color = "purple"
+# background_color = "dark"
+# menu_items = [
+#     {name = "blog", url = "$BASE_URL"},
+#     {name = "tags", url = "$BASE_URL/tags"},
+#     {name = "archive", url = "$BASE_URL/archive"},
+#     {name = "about me", url = "$BASE_URL/about"},
+#     {name = "github", url = "https://github.com/Red4mber", newtab = true},
+# ]
+# enable_post_view_navigation = true
+# post_view_navigation_prompt = "Read more"
+# use_full_hack_font = true
+# page_titles = "combined"
+
+### Heisenberg theme
+toc = true
+use_cdn = false
+search_bar = true
+
+# The icon is display besides the menu text but is not necessary. It needs to be placed under "menu_icon" in the static "folder"
+menu = [
+    { name = "Projects", url = "/projects", weight = 1, icon = "projects.png" },
+]
+#The icons available can be found in "social_icons" in the "static" folder
+socials = [
+    { name = "github", url = "https://github.com/Red4mber", icon = "github" },
+]
